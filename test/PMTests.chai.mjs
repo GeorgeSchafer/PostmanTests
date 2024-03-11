@@ -20,10 +20,12 @@ import {
     constructorThrowsError
 } from './ChaiTests/Chai.mjs'
 
+
 describe('PMTests.mjs', () => {
+    const count = counter + 1
     describe('counter', () => {
-        it(`${getCounter()} counter is 2`, () => {
-            expect(counter).to.eql(2)
+        it(`${getCounter()} counter is 1`, () => {
+            expect(count).to.eql(1)
         })
 
         const counterStr = getCounter()
@@ -45,7 +47,7 @@ describe('PMTests.mjs', () => {
         valueMatch(has(false), 'does NOT have')
     })
 
-    describe('', () => {
-        
+    describe('Check Status', () => {
+        checkStatus(200)
     })
 })

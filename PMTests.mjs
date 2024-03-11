@@ -1,3 +1,20 @@
+import { expect } from 'chai'
+const pm = {
+    response: {
+        to: { 
+            have: {
+                status: code => {
+                    expect(code).to.eql(200)
+                }
+            }
+        }
+    },
+    expect: (value) => { // not working
+        expect(value)
+    },
+    test: (description, funct) => {return it(description, funct)}
+}
+
 let counter = 0
 
 function getCounter(){
@@ -31,14 +48,15 @@ function has(bool){
 }
 
 function checkStatus(code){
-    const description = `${getCounter()}: Status code is ${code}`
+    const description = `${getCounter()} Status code is ${code}`
     pm.test(description, () => {
         pm.response.to.have.status(code)
     })
 }
 
 function checkSchema(subject, newSchema, checkAgainst, bool){
-    const description = `Test ${counter}: ${subject} schema ${is(bool)} valid`
+    /** @todo write test */
+    const description = `${getCounter()} ${subject} schema ${is(bool)} valid`
     pm.test(description, () => {
         const schema = newSchema
         bool
@@ -48,16 +66,19 @@ function checkSchema(subject, newSchema, checkAgainst, bool){
 }
 
 function stringLongerThan(string, alias, int){
+    /** @todo write test */
     const description = `${getCounter()} ${alias} is longer than ${int} characters`
     pm.test(description, () => {
-        pm.expect(string).to.be.greaterThan(int);
+        const isGreaterThan = string.length > int
+        pm.expect(isGreaterThan).to.eql.true;
     })
 }
 
 function checkString(subject, alias, target){
+    /** @todo write test */
     const description = `${getCounter()}: ${alias} is ${target}`
     pm.test(description, () => {
-        pm.expect(subject).eqls(target);
+        pm.expect(subject).to.eql(target);
     })
 }
 
