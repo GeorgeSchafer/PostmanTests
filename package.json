@@ -1,0 +1,22 @@
+{
+  "name": "postmantests",
+  "version": "0.0.1",
+  "description": "",
+  "main": "PMTests.mjs",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test --exit"
+  },
+  "keywords": [
+    "Postman",
+    "api"
+  ],
+  "author": "GeorgeSchafer",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^5.1.0",
+    "mocha": "^10.3.0"
+  }
+}
